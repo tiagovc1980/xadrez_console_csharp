@@ -18,5 +18,10 @@ namespace Tabuleiro
             NumeroColunas = numeroColunas;
             MatrizPecas = new Peca[numeroLinhas, numeroColunas];
         }
+
+        public Peca PecaDoJogo (int linha, int coluna)
+        {
+            return MatrizPecas[linha, coluna];
+        }
     }
 }
