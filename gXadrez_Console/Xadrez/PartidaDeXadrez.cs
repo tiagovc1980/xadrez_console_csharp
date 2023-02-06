@@ -38,10 +38,11 @@ namespace gXadrez_Console.Xadrez
         {
             Tab.ColocarPeca(new Torre(Tab, Cor.Branca), new PosicaoXadrez('a', 1).PosicaoNaMatriz());
             Tab.ColocarPeca(new Torre(Tab, Cor.Branca), new PosicaoXadrez('h', 1).PosicaoNaMatriz());
-
+            Tab.ColocarPeca(new Rei(Tab, Cor.Branca), new PosicaoXadrez('e', 1).PosicaoNaMatriz());
 
             Tab.ColocarPeca(new Torre(Tab, Cor.Preta), new PosicaoXadrez('a', 8).PosicaoNaMatriz());
             Tab.ColocarPeca(new Torre(Tab, Cor.Preta), new PosicaoXadrez('h', 8).PosicaoNaMatriz());
+            Tab.ColocarPeca(new Rei(Tab, Cor.Preta), new PosicaoXadrez('e', 8).PosicaoNaMatriz());
         }
 
 

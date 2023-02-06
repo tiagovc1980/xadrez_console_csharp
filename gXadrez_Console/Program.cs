@@ -17,6 +17,13 @@ internal class Program
                 Console.WriteLine();
                 Console.Write("Origem: ");
                 Posicao origem = Tela.LerPosicaoXadrez().PosicaoNaMatriz();
+
+                bool[,] PosicoesPossiveis = partidaDeXadrez.Tab.PecaDoJogo(origem).MovimentosPossiveis();
+
+                Console.Clear();
+                Tela.ImprimirTabuleiro(partidaDeXadrez.Tab, PosicoesPossiveis);
+
+                Console.WriteLine();
                 Console.Write("Destino: ");
                 Posicao destino = Tela.LerPosicaoXadrez().PosicaoNaMatriz();
 
