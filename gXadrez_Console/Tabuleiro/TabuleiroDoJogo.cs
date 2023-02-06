@@ -24,10 +24,42 @@ namespace Tabuleiro
             return MatrizPecas[linha, coluna];
         }
 
+        public Peca PecaDoJogo (Posicao pos)
+        {
+            return MatrizPecas[pos.Linha, pos.Coluna];
+        }
+
+        public bool ExistePeca (Posicao pos)
+        {
+            ValidarPosicao(pos);
+            return PecaDoJogo(pos) != null;
+        }
+
         public void ColocarPeca (Peca p, Posicao pos)
         {
+            if (ExistePeca (pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nesta posição!");
+            }
             MatrizPecas[pos.Linha, pos.Coluna] = p;
             p.posicao = pos;
+        }
+
+        public bool PosicaoValida (Posicao pos)
+        {
+            if (pos.Linha < 0 || pos.Linha >= NumeroLinhas || pos.Coluna < 0 || pos.Coluna >= NumeroColunas)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void ValidarPosicao (Posicao pos)
+        {
+            if (!PosicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição inválida");
+            }
         }
     }
 }
