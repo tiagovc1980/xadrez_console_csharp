@@ -23,5 +23,11 @@ namespace Tabuleiro
         {
             return MatrizPecas[linha, coluna];
         }
+
+        public void ColocarPeca (Peca p, Posicao pos)
+        {
+            MatrizPecas[pos.Linha, pos.Coluna] = p;
+            p.posicao = pos;
+        }
     }
 }
