@@ -8,16 +8,21 @@ internal class Program
     {
         try
         {
-            TabuleiroDoJogo tab = new TabuleiroDoJogo(8, 8);
+            PartidaDeXadrez partidaDeXadrez = new PartidaDeXadrez();
 
-            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0,0));
-            tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-            tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
-            tab.ColocarPeca(new Rei(tab, Cor.Branca), new Posicao(3, 5));
-            tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(5, 4));
+            while (!partidaDeXadrez.PartidaTerminada)
+            {
+                Console.Clear();
+                Tela.ImprimirTabuleiro(partidaDeXadrez.Tab);
+                Console.WriteLine();
+                Console.Write("Origem: ");
+                Posicao origem = Tela.LerPosicaoXadrez().PosicaoNaMatriz();
+                Console.Write("Destino: ");
+                Posicao destino = Tela.LerPosicaoXadrez().PosicaoNaMatriz();
 
-            Tela.ImprimirTabuleiro(tab);
-             
+                partidaDeXadrez.ExecutaMovimento(origem, destino);
+
+            }
         }
         catch (TabuleiroException e)
         {
