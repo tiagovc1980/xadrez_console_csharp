@@ -13,6 +13,8 @@ namespace gXadrez_Console
         {
             for (int i = 0; i < tab.NumeroLinhas; i++)
             {
+                Console.Write(8-i + " ");
+
                 for (int j = 0; j < tab.NumeroColunas; j++)
                 {
                     if (tab.PecaDoJogo(i, j) == null)
@@ -21,10 +23,27 @@ namespace gXadrez_Console
                     }
                     else
                     {
-                        Console.Write(tab.PecaDoJogo(i, j) + " ");
+                        ImprimirPeca(tab.PecaDoJogo(i, j));
+                        Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
+            }
+            Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static void ImprimirPeca(Peca p)
+        {
+            if (p.cor == Cor.Branca)
+            {
+                Console.Write(p);
+            }
+            else
+            {
+                ConsoleColor aux = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(p);
+                Console.ForegroundColor = aux;
             }
         }
     }
